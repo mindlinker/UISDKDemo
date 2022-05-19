@@ -34,7 +34,7 @@ allprojects {
 
 dependencies {
 
-    implementation 'com.github.Mindlinker:MLSDK:1.0.0'
+    implementation 'com.github.mindlinker:mlsdk:1.0.0'
     
 }
 
