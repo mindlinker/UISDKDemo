@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.mindlinker.mlsdk">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher_app"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:roundIcon="@mipmap/ic_launcher_app"
+        android:theme="@style/Theme.MLSDK">
+        <activity
+            android:name=".ui.home.HomeActivity"
+            android:exported="true"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".ui.home.meeting.MeetingActivity"
+            android:theme="@style/BlackTheme"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|fontScale"
+            android:windowSoftInputMode="adjustPan"
+            android:launchMode="singleTask">
+            <intent-filter>
+                <action android:name="com.mindlinker.mlsdk.action" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".ui.home.JoinMeetingActivity"
+            android:screenOrientation="portrait"/>
+
+    </application>
+
+</manifest>

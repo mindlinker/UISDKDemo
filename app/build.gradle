@@ -1,0 +1,89 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion 28
+
+    defaultConfig {
+        applicationId "com.mindlinker.mlsdk"
+        minSdkVersion 24
+        targetSdkVersion 26
+        versionCode rootProject.ext.versionCode
+        versionName rootProject.ext.versionName
+        vectorDrawables.useSupportLibrary = true
+        multiDexEnabled true
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        ndk {
+            abiFilters "armeabi-v7a", "arm64-v8a"
+        }
+    }
+
+
+    buildTypes {
+        debug {
+        }
+        release {
+            minifyEnabled true
+            shrinkResources true
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+    }
+}
+
+ext {
+    retrofit2Version = "2.3.0"
+    glideVersion = "4.9.0"
+}
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'androidx.core:core-ktx:1.0.2'
+    implementation 'androidx.appcompat:appcompat:1.0.2'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+
+    implementation 'io.reactivex.rxjava2:rxandroid:2.0.1'
+    implementation 'io.reactivex.rxjava2:rxkotlin:2.2.0'
+    // okhttp 查看请求Log使用
+    implementation "com.squareup.okhttp3:logging-interceptor:3.9.1"
+//
+    implementation('io.socket:socket.io-client:1.0.1'){
+        // excluding org.json which is provided by Android
+        exclude group: 'org.json', module: 'json'
+    }
+    implementation 'com.google.code.gson:gson:2.8.9'
+
+    //retrofit2
+    implementation "com.squareup.retrofit2:retrofit:$retrofit2Version"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofit2Version"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:$retrofit2Version"
+
+    // 引入MLSDK
+    implementation 'com.github.Mindlinker:MLSDK:1.0.0'
+}
+if (hasProperty("jenkins")) {
+    android {
+        android.applicationVariants.all { variant ->
+            //这里修改apk文件名
+            variant.getPackageApplication().outputDirectory = new File(project.rootDir.absolutePath + "/apk")
+            def buildType = variant.buildType.name
+            println("build with jeknins, build type name " + buildType)
+            def fileName = "MLSDK_APP_${defaultConfig.versionName}_${defaultConfig.versionCode}_${rootProject.ext.vcsVersion}_${buildType}_${rootProject.ext.buildTime}.apk"
+            println("build with jeknins, will change output apk name " + fileName)
+            variant.outputs.all { output ->
+                def outputFile = output.outputFile
+                if (outputFile != null && outputFile.name.endsWith('.apk')) {
+                    output.outputFileName = fileName
+                }
+            }
+        }
+    }
+}

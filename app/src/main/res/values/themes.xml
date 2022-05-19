@@ -1,0 +1,11 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.MLSDK" parent="Theme.AppCompat.Light.NoActionBar">
+            <item name="android:windowLightStatusBar" tools:targetApi="m">true</item>
+    </style>
+
+    <style name="BlackTheme" parent="Theme.MLSDK">
+        <item name="android:windowBackground">@color/color_000000</item>
+        <item name="android:colorBackground">@color/color_000000</item>
+    </style>
+</resources>

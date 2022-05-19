@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#fff1f3f5">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/ml_px_66"
+        android:background="@color/color_FFFFFF"/>
+
+    <RelativeLayout
+        android:id="@+id/rl"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/ml_px_88"
+        android:background="@color/color_FFFFFF"
+        android:layout_marginTop="@dimen/ml_px_66">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivBack"
+            android:layout_width="@dimen/ml_px_48"
+            android:layout_height="@dimen/ml_px_48"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="15dp"
+            android:src="@drawable/ic_nav_back" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="加入房间"
+            android:textColor="@color/color_333333"
+            android:textSize="@dimen/ml_font_34" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/llMeeting"
+        android:layout_width="match_parent"
+        android:layout_height="54dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginTop="12dp"
+        android:background="@color/color_FFFFFF"
+        android:paddingLeft="15dp"
+        android:layout_below="@id/rl">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="房间号    "
+            android:textColor="#ff333333"
+            android:textSize="16sp" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/edMeeting"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/tip_meeting_input"
+            android:textSize="16sp"
+            android:background="@null"
+            android:layout_marginStart="@dimen/ml_px_44"
+            android:layout_marginEnd="@dimen/ml_px_44"
+            android:lines="1"
+            android:inputType="number"
+            android:textCursorDrawable="@drawable/shape_edittext_cursor"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/llMeetingName"
+        android:layout_width="match_parent"
+        android:layout_height="54dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingLeft="15dp"
+        android:layout_marginTop="@dimen/ml_px_1"
+        android:background="@color/color_FFFFFF"
+        android:layout_below="@id/llMeeting">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="用户名称"
+            android:textColor="#ff333333"
+            android:textSize="16sp" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/edName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="请输入用户名称"
+            android:textSize="16sp"
+            android:background="@null"
+            android:layout_marginStart="@dimen/ml_px_44"
+            android:layout_marginEnd="@dimen/ml_px_44"
+            android:textCursorDrawable="@drawable/shape_edittext_cursor"
+            android:lines="1"/>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/llMic"
+        android:layout_width="match_parent"
+        android:layout_height="54dp"
+        android:layout_below="@id/llMeetingName"
+        android:layout_marginTop="12dp"
+        android:background="@color/color_FFFFFF"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingLeft="15dp"
+        android:paddingRight="28dp">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="开启麦克风"
+            android:textColor="#ff333333"
+            android:textSize="16sp" />
+
+        <com.mindlinker.mlsdk.ui.home.SwitchButton
+            android:id="@+id/audioOptionSwitchButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/llVideo"
+        android:layout_width="match_parent"
+        android:layout_height="54dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingLeft="15dp"
+        android:paddingRight="28dp"
+        android:layout_marginTop="@dimen/ml_px_1"
+        android:background="@color/color_FFFFFF"
+        android:layout_below="@id/llMic">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="开启摄像头"
+            android:textColor="#ff333333"
+            android:textSize="16sp" />
+
+        <com.mindlinker.mlsdk.ui.home.SwitchButton
+            android:id="@+id/videoOptionSwitchButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </LinearLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/joinMeeting"
+        android:layout_width="285dp"
+        android:layout_height="@dimen/ml_px_88"
+        android:layout_below="@id/llVideo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="12dp"
+        android:background="@null"
+        android:gravity="center"
+        android:stateListAnimator="@null"
+        android:text="加入房间"
+        android:textColor="#ffffff" />
+
+    <FrameLayout
+        android:id="@+id/flLoading"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#66666666"
+        android:clickable="true"
+        android:visibility="gone">
+
+        <ProgressBar
+            android:layout_width="@dimen/ml_px_100"
+            android:layout_height="@dimen/ml_px_100"
+            style="?android:attr/progressBarStyleSmall"
+            android:layout_gravity="center"
+            android:indeterminateTint="@color/color_main_color"/>
+
+    </FrameLayout>
+</RelativeLayout>

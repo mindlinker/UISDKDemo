@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--===主要颜色===-->
+    <color name="color_main_color">#0B7BFF</color><!--迈聆主颜色 / 按钮 / 引导 / 高亮等主要突出使用-->
+    <color name="color_main_bg">#292C33</color><!--底色块颜色-->
+    <color name="normal_text_color">#333333</color>
+    <color name="transparent">#00000000</color>
+    <color name="color_000000">#000000</color>
+    <color name="color_EBEBEB">#EBEBEB</color>
+    <color name="color_666666">#666666</color>
+    <color name="color_FFFFFF">#ffffff</color>
+    <color name="color_D8D8D8">#D8D8D8</color>
+    <color name="color_979797">#979797</color>
+    <color name="color_333333">#333333</color>
+    <color name="color_D6D6D6">#D6D6D6</color>
+    <color name="color_CCCCCC">#CCCCCC</color>
+</resources>
