@@ -13,12 +13,19 @@ SDK引入
 第一步
 
 编辑您的项目 build.gradle 文件并添加以下依赖项
+
 allprojects {
+
     repositories {
+    
         //...
+        
         maven { url 'https://jitpack.io' }
+        
     }
+    
 }
+
 将依赖项添加到您的应用程序 build.gradle 或模块 build.gradle
 
 第二步
@@ -26,10 +33,13 @@ allprojects {
 将依赖项添加到您的应用程序 build.gradle 或模块 build.gradle
 
 dependencies {
+
     implementation 'com.github.Mindlinker:MLSDK:0.0.6'
+    
 }
 
 至此，你已经接入了迈聆UISDK，了解更多接入细节可登录迈聆官网进行咨询
+
 
 迈聆会议
 
