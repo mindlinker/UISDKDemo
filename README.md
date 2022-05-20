@@ -26,7 +26,7 @@ allprojects {
     
 }
 
-将依赖项添加到您的应用程序 build.gradle 或模块 build.gradle
+
 
 第二步
 
